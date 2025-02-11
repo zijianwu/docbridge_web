@@ -1,0 +1,123 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.svg';
+import logo_footer from '../assets/logo_footer.svg';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "DocBridge - Streamlining Healthcare Communications" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="/" class="flex items-center">
+              <Image src={logo} alt="DocBridge Logo" class="h-8 w-auto" />
+            </a>
+          </div>
+          <div class="hidden sm:flex items-center space-x-8">
+            <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
+            <a href="/about" class="text-gray-700 hover:text-blue-600">About</a>
+            <a href="/services" class="text-gray-700 hover:text-blue-600">Services</a>
+            <a href="/contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Contact Us</a>
+          </div>
+          <div class="sm:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-gray-700">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="sm:hidden hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="/" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+          <a href="/about" class="block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+          <a href="/services" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+          <a href="/contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact Us</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-16">
+      <slot />
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <Image src={logo_footer} alt="DocBridge Logo" class="h-8 w-auto mb-4" />
+            <p class="text-gray-400">Streamlining healthcare communications and appointment scheduling through innovative technology.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="/about" class="text-gray-400 hover:text-white">About Us</a></li>
+              <li><a href="/services" class="text-gray-400 hover:text-white">Services</a></li>
+              <li><a href="/contact" class="text-gray-400 hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact</h3>
+            <ul class="text-gray-400 space-y-2">
+              <li>Email: info@docbridge.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>&copy; {new Date().getFullYear()} DocBridge. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --accent: 37, 99, 235;
+    --accent-light: 96, 165, 250;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fff;
+    color: #111827;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+</style>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

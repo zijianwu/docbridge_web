@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const heroImage = {
+  src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80",
+  width: 2000,
+  height: 1333,
+  format: 'jpg',
+  alt: "Healthcare professionals"
+};
+---
+
+<Layout title="DocBridge - Streamlining Healthcare Communications">
+  <div class="relative bg-white">
+    <div class="relative">
+      <div class="absolute inset-0">
+        <img
+          src={heroImage.src}
+          alt={heroImage.alt}
+          class="w-full h-[600px] object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-900/70 mix-blend-multiply" />
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+            <span class="block">Streamline Your</span>
+            <span class="block text-blue-200">Healthcare Communications</span>
+          </h1>
+          <p class="mt-3 text-white text-lg sm:text-xl md:mt-5">
+            DocBridge manages patient communications and scheduling, seamlessly integrating with your EHR system to enhance healthcare operations.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+              Get Started
+            </a>
+            <a href="/services" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-gray-900">Why Choose DocBridge?</h2>
+          <p class="mt-4 text-lg text-gray-500">Discover how we're transforming healthcare communication.</p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="text-blue-600 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-gray-900">Efficient Communication</h3>
+              <p class="mt-2 text-base text-gray-500">
+                Handle patient calls and emails professionally, ensuring timely responses and proper documentation.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="text-blue-600 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-gray-900">Smart Scheduling</h3>
+              <p class="mt-2 text-base text-gray-500">
+                Schedule appointments according to physician preferences and availability, optimizing practice efficiency.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <div class="text-blue-600 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-gray-900">EHR Integration</h3>
+              <p class="mt-2 text-base text-gray-500">
+                Seamlessly integrate with your existing EHR system for streamlined operations and data management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
